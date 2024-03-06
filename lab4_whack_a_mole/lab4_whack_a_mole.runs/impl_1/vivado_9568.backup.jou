@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:03:12 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Mar  5 17:18:26 2024
+# Process ID: 9568
+# Current directory: C:/Users/Student/Desktop/team_15_w24/lab4_whack_a_mole/lab4_whack_a_mole.runs/impl_1
+# Command line: vivado.exe -log wam_m.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source wam_m.tcl -notrace
+# Log file: C:/Users/Student/Desktop/team_15_w24/lab4_whack_a_mole/lab4_whack_a_mole.runs/impl_1/wam_m.vdi
+# Journal file: C:/Users/Student/Desktop/team_15_w24/lab4_whack_a_mole/lab4_whack_a_mole.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source wam_m.tcl -notrace
