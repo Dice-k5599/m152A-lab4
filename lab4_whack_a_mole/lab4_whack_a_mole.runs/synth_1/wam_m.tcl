@@ -18,6 +18,7 @@ proc create_report { reportName command } {
   }
 }
 set_param xicom.use_bs_reader 1
+set_msg_config -id {Common 17-41} -limit 10000000
 create_project -in_memory -part xc7a35tcpg236-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -30,6 +31,7 @@ set_property target_language Verilog [current_project]
 set_property ip_output_repo c:/Users/Student/Desktop/team_15_w24/lab4_whack_a_mole/lab4_whack_a_mole.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
+  C:/Users/Student/Desktop/team_15_w24/lab4_whack_a_mole/lab4_whack_a_mole.srcs/sources_1/new/clkdivider.v
   C:/Users/Student/Desktop/team_15_w24/lab4_whack_a_mole/lab4_whack_a_mole.srcs/sources_1/new/wam_cnt.v
   C:/Users/Student/Desktop/team_15_w24/lab4_whack_a_mole/lab4_whack_a_mole.srcs/sources_1/new/wam_dis.v
   C:/Users/Student/Desktop/team_15_w24/lab4_whack_a_mole/lab4_whack_a_mole.srcs/sources_1/new/wam_gen.v
@@ -43,6 +45,7 @@ read_verilog -library xil_defaultlib {
   C:/Users/Student/Desktop/team_15_w24/lab4_whack_a_mole/lab4_whack_a_mole.srcs/sources_1/new/wam_scr.v
   C:/Users/Student/Desktop/team_15_w24/lab4_whack_a_mole/lab4_whack_a_mole.srcs/sources_1/new/wam_tap.v
   C:/Users/Student/Desktop/team_15_w24/lab4_whack_a_mole/lab4_whack_a_mole.srcs/sources_1/new/wam_tch.v
+  C:/Users/Student/Desktop/team_15_w24/lab4_whack_a_mole/lab4_whack_a_mole.srcs/sources_1/new/wam_timerCount.v
   C:/Users/Student/Desktop/team_15_w24/lab4_whack_a_mole/lab4_whack_a_mole.srcs/sources_1/new/wam_m.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being

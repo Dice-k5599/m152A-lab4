@@ -43,7 +43,7 @@ module wam_obd(             // 1-bit digital tube output
             'hD: a2g=7'b1000010;
             'hE: a2g=7'b0110000;
             'hF: a2g=7'b1111111;        // use F for blank
-            default: a2g=7'b1111111;    // default is blank
+            default: a2g=7'b00000001;    // default is zero
         endcase
     end
 endmodule // wam_obd

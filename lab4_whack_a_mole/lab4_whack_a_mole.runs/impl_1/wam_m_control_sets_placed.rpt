@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2018.2 (win64) Build 2258646 Thu Jun 14 20:03:12 MDT 2018
-| Date         : Tue Mar  5 17:18:55 2024
+| Date         : Mon Mar 11 11:52:54 2024
 | Host         : CS152A-07 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file wam_m_control_sets_placed.rpt
 | Design       : wam_m
@@ -23,8 +23,8 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Number of unique control sets                            |    41 |
-| Unused register locations in slices containing registers |   168 |
+| Number of unique control sets                            |    43 |
+| Unused register locations in slices containing registers |   170 |
 +----------------------------------------------------------+-------+
 
 
@@ -37,7 +37,7 @@ Table of Contents
 |      2 |           26 |
 |      4 |            1 |
 |      8 |           11 |
-|    16+ |            3 |
+|    16+ |            5 |
 +--------+--------------+
 
 
@@ -47,12 +47,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             218 |           31 |
-| No           | No                    | Yes                    |              70 |           27 |
-| No           | Yes                   | No                     |              16 |            8 |
+| No           | No                    | No                     |             218 |           35 |
+| No           | No                    | Yes                    |              70 |           23 |
+| No           | Yes                   | No                     |              70 |           15 |
 | Yes          | No                    | No                     |               0 |            0 |
-| Yes          | No                    | Yes                    |              64 |           15 |
-| Yes          | Yes                   | No                     |               8 |            2 |
+| Yes          | No                    | Yes                    |              64 |           16 |
+| Yes          | Yes                   | No                     |              24 |            4 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -62,47 +62,49 @@ Table of Contents
 +-------------------------------------+-------------------------------+------------------------------------+------------------+----------------+
 |             Clock Signal            |         Enable Signal         |          Set/Reset Signal          | Slice Load Count | Bel Load Count |
 +-------------------------------------+-------------------------------+------------------------------------+------------------+----------------+
-|  sub_gen/rdn/num_reg[1]_LDC_i_1_n_0 |                               | sub_gen/rdn/num_reg[1]_LDC_i_2_n_0 |                1 |              2 |
-|  sub_gen/rdn/num_reg[0]_LDC_i_1_n_0 |                               | sub_gen/rdn/num_reg[0]_LDC_i_2_n_0 |                1 |              2 |
-|  sub_gen/rdn/num_reg[2]_LDC_i_1_n_0 |                               | sub_gen/rdn/num_reg[2]_LDC_i_2_n_0 |                1 |              2 |
+|  sub_gen/rdn/num_reg[7]_LDC_i_1_n_0 |                               | sub_gen/rdn/num_reg[7]_LDC_i_2_n_0 |                1 |              2 |
 |  sub_gen/rdn/num_reg[3]_LDC_i_1_n_0 |                               | sub_gen/rdn/num_reg[3]_LDC_i_2_n_0 |                1 |              2 |
+|  sub_gen/rdn/num_reg[2]_LDC_i_1_n_0 |                               | sub_gen/rdn/num_reg[2]_LDC_i_2_n_0 |                1 |              2 |
 |  sub_gen/rdn/num_reg[6]_LDC_i_1_n_0 |                               | sub_gen/rdn/num_reg[6]_LDC_i_2_n_0 |                1 |              2 |
 |  sub_gen/rdn/num_reg[5]_LDC_i_1_n_0 |                               | sub_gen/rdn/num_reg[5]_LDC_i_2_n_0 |                1 |              2 |
-|  sub_gen/rdn/num_reg[7]_LDC_i_1_n_0 |                               | sub_gen/rdn/num_reg[7]_LDC_i_2_n_0 |                1 |              2 |
+|  sub_gen/rdn/num_reg[0]_LDC_i_1_n_0 |                               | sub_gen/rdn/num_reg[0]_LDC_i_2_n_0 |                1 |              2 |
 |  sub_gen/rdn/num_reg[4]_LDC_i_1_n_0 |                               | sub_gen/rdn/num_reg[4]_LDC_i_2_n_0 |                1 |              2 |
+|  sub_gen/rdn/num_reg[1]_LDC_i_1_n_0 |                               | sub_gen/rdn/num_reg[1]_LDC_i_2_n_0 |                1 |              2 |
 |  sub_hit/scr                        |                               |                                    |                1 |              2 |
 |  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[2]_LDC_i_1_n_0 |                1 |              2 |
-|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[2]_LDC_i_2_n_0 |                1 |              2 |
-|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[3]_LDC_i_1_n_0 |                1 |              2 |
-|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[7]_LDC_i_2_n_0 |                1 |              2 |
-|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[6]_LDC_i_2_n_0 |                1 |              2 |
 |  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[4]_LDC_i_2_n_0 |                1 |              2 |
-|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[5]_LDC_i_2_n_0 |                1 |              2 |
 |  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[6]_LDC_i_1_n_0 |                1 |              2 |
 |  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[5]_LDC_i_1_n_0 |                1 |              2 |
-|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[7]_LDC_i_1_n_0 |                1 |              2 |
-|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[4]_LDC_i_1_n_0 |                1 |              2 |
-|  pse_IBUF_BUFG                      |                               |                                    |                1 |              2 |
 |  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[3]_LDC_i_2_n_0 |                1 |              2 |
-|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[0]_LDC_i_2_n_0 |                1 |              2 |
-|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[1]_LDC_i_1_n_0 |                1 |              2 |
-|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[1]_LDC_i_2_n_0 |                1 |              2 |
 |  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[0]_LDC_i_1_n_0 |                1 |              2 |
+|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[0]_LDC_i_2_n_0 |                1 |              2 |
+|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[3]_LDC_i_1_n_0 |                1 |              2 |
+|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[4]_LDC_i_1_n_0 |                1 |              2 |
+|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[6]_LDC_i_2_n_0 |                1 |              2 |
+|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[5]_LDC_i_2_n_0 |                1 |              2 |
+|  pse_IBUF_BUFG                      |                               |                                    |                1 |              2 |
+|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[1]_LDC_i_1_n_0 |                1 |              2 |
+|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[7]_LDC_i_2_n_0 |                1 |              2 |
+|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[7]_LDC_i_1_n_0 |                1 |              2 |
+|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[2]_LDC_i_2_n_0 |                1 |              2 |
+|  clk_cnt_reg_n_0_[21]               |                               | sub_gen/rdn/num_reg[1]_LDC_i_2_n_0 |                1 |              2 |
 |  clk_16                             |                               |                                    |                1 |              4 |
 |  sub_hit/scr                        |                               | clr_IBUF                           |                1 |              8 |
 |  sub_scr/cnt0/CLK                   |                               | clr_IBUF                           |                1 |              8 |
-|  clk_19_reg_n_0_BUFG                | sub_gen/holes_cnt[15]_i_1_n_0 | clr_IBUF                           |                2 |              8 |
-|  clk_19_reg_n_0_BUFG                | sub_gen/holes_cnt[23]_i_1_n_0 | clr_IBUF                           |                2 |              8 |
 |  clk_19_reg_n_0_BUFG                | sub_gen/holes_cnt[19]_i_1_n_0 | clr_IBUF                           |                2 |              8 |
-|  clk_19_reg_n_0_BUFG                | sub_gen/holes_cnt[11]_i_1_n_0 | clr_IBUF                           |                2 |              8 |
+|  clk_19_reg_n_0_BUFG                | sub_gen/holes_cnt[23]_i_1_n_0 | clr_IBUF                           |                2 |              8 |
 |  clk_19_reg_n_0_BUFG                | sub_gen/holes_cnt[27]_i_1_n_0 | clr_IBUF                           |                2 |              8 |
-|  clk_19_reg_n_0_BUFG                | sub_gen/holes_cnt[7]_i_1_n_0  | clr_IBUF                           |                1 |              8 |
-|  clk_19_reg_n_0_BUFG                | sub_hrd/tchc/E[0]             | clr_IBUF                           |                2 |              8 |
-|  clk_19_reg_n_0_BUFG                | sub_gen/holes_cnt[3]_i_1_n_0  | clr_IBUF                           |                2 |              8 |
+|  clk_19_reg_n_0_BUFG                | sub_gen/holes_cnt[15]_i_1_n_0 | clr_IBUF                           |                2 |              8 |
+|  clk_19_reg_n_0_BUFG                | sub_gen/holes_cnt[7]_i_1_n_0  | clr_IBUF                           |                2 |              8 |
+|  clk_19_reg_n_0_BUFG                | sub_gen/holes_cnt[11]_i_1_n_0 | clr_IBUF                           |                2 |              8 |
 |  clk_19_reg_n_0_BUFG                | sub_gen/holes_cnt[31]_i_1_n_0 | clr_IBUF                           |                2 |              8 |
-|  clk_19_reg_n_0_BUFG                |                               | clr_IBUF                           |                9 |             22 |
-|  clk_IBUF_BUFG                      |                               |                                    |                9 |             62 |
-|  clk_19_reg_n_0_BUFG                |                               |                                    |               19 |            148 |
+|  clk_19_reg_n_0_BUFG                | sub_hrd/tchc/E[0]             | clr_IBUF                           |                1 |              8 |
+|  clk_19_reg_n_0_BUFG                | sub_gen/holes_cnt[3]_i_1_n_0  | clr_IBUF                           |                2 |              8 |
+|  xlnx_opt_                          | clkdivider/E[0]               | clr_IBUF                           |                3 |             16 |
+|  clk_19_reg_n_0_BUFG                |                               | clr_IBUF                           |                5 |             22 |
+|  xlnx_opt_                          |                               | clkdivider/count[0]_i_1_n_0        |                7 |             54 |
+|  xlnx_opt_                          |                               |                                    |                9 |             62 |
+|  clk_19_reg_n_0_BUFG                |                               |                                    |               23 |            148 |
 +-------------------------------------+-------------------------------+------------------------------------+------------------+----------------+
 
 

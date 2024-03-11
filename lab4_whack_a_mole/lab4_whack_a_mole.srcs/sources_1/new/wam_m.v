@@ -160,9 +160,11 @@ module wam_m(
     );
 
     reg  [31:0] clk_cnt;    // clock count
+    reg  [27:0] clk_cnt2;   // for 1hz clock
     wire clk_16;            // clock at 2^16 (800Hz)
     reg  clk_19;            // clock at 2^19 (100Hz)
-    reg  clk_25;            // clock at 2^25 (1Hz)
+    wire  clk_25;            // clock at 2^25 (1Hz)
+    reg  clk_out;
     reg  pse_flg;           // pause flag
 
     wire cout0;             // carry signal
@@ -173,6 +175,14 @@ module wam_m(
     wire [7:0]  tap;        // 8 switch hit input
     wire [7:0]  hit;        // 8 successful hit
     wire [11:0] score;      // score
+    
+    //timer count register that holds remaining time
+    wire [3:0] left_digit;
+    wire [3:0] right_digit;
+    wire one_second_enable;
+    wire [7:0] displayed_number;
+//    reg [3:0] first_digit;
+//    reg [3:0] second_digit;    
 
     // handle clock
     always @(posedge clk) begin
@@ -194,13 +204,46 @@ module wam_m(
     always @ (posedge clk) begin
         if (!pse_flg) begin
             clk_19 = clk_cnt[19];
-            clk_25 = clk_cnt[25];
         end
     end
+    
+    // generate 1hz clock
+    clkdivider clkdivider(
+        .clk(clk),
+        .clr(clr),
+        .clk_25(clk_25),
+        .one_second_enable(one_second_enable)
+    );
 
     // generate moles
-    wam_gen sub_gen( .clk_19(clk_19), .clr(clr), .clk_cnt(clk_cnt), .hit(hit), .hrdn(hrdn), .holes(holes) );
-    wam_hrd sub_hrd( .clk_19(clk_19), .clr(clr), .lft(lft), .rgt(rgt), .cout0(cout0), .hrdn(hrdn) );
+    wam_gen sub_gen( 
+        .clk_19(clk_19), 
+        .clr(clr), 
+        .clk_cnt(clk_cnt), 
+        .hit(hit), 
+        .hrdn(hrdn), 
+        .holes(holes) 
+    );
+    
+    wam_timerCount sub_timerCount (
+        .clk(clk),
+        .clk_25(clk_25),
+        .clr(clr),
+        .pse(pse),
+        .one_second_enable(one_second_enable),
+        .displayed_number(displayed_number),
+        .left_digit(left_digit),
+        .right_digit(right_digit)
+    );
+    
+    wam_hrd sub_hrd( 
+        .clk_19(clk_19), 
+        .clr(clr), 
+        .lft(lft), 
+        .rgt(rgt), 
+        .cout0(cout0), 
+        .hrdn(hrdn) 
+    );
 
     // handle input tap
     wam_tap sub_tap( .clk_19(clk_19), .sw(sw), .tap(tap) );
@@ -212,5 +255,17 @@ module wam_m(
     // handle display on digital tube
     wam_led sub_led( .holes(holes), .ld(ld) );
     wam_lst sub_lst( .clk_19(clk_19), .tap(tap), .lft(lft), .rgt(rgt), .cout0(cout0), .lstn(lstn) );
-    wam_dis sub_dis( .clk_16(clk_16), .hrdn(hrdn), .score(score), .lstn(lstn), .an(an), .a2g(a2g) );
+    wam_dis sub_dis( 
+        .clk_16(clk_16),
+        .clk_25(clk_25),    //1hz clock
+        .hrdn(hrdn), 
+        .score(score),
+        .lstn(lstn), 
+        .an(an), 
+        .a2g(a2g),
+        
+        .left_digit(left_digit),
+        .right_digit(right_digit),
+        .displayed_number(displayed_number)
+    );
 endmodule
